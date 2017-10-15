@@ -83,24 +83,21 @@ where:
 
 It is worth noticing an important difference between the procedure utilized by LArIAT to measure the total hadronic kaon cross section and the procedure used by other experiments in neutrino cross section measurements. In the latter, one needs to correct for the detector inefficiency in identifying neutrinos. In our measurement,  we need do not need to efficiency correct for the beam line candidates which we are not able to identify in the TPC. This is because the cross section calculation in Eq. \ref{calc_sigma2}  relies on measuring the ratio $\frac{ N_{interacting}}{N_{incident}}$, where both these numbers are drawn from tracked kaons in the TPC.
 
+The sliced TPC technique was tested by comparing the results of this method with the Geant 4.10.1.p3 prediction of the total hadronic interaction cross section ($K^{+}$, Ar)  with Bertini Cascade model.
+Fig.~\ref{fig:TrueArgon} shows the resulting total ${K^+}$ cross section extracted by the sliced TPC technique; it agrees well with the Geant 4  cross section.  This comparison demonstrates the power of the sliced TPC method for the measurement of the ($K^{+}$, Ar) cross section in LArIAT TPC geometry. 
 
-The sliced TPC technique was tested by comparing the results of this method with the prediction of the total hadronic interaction cross section ($K^{+}$, Ar) for thin-target simulations of the Geant 4.10.1 with Bertini Cascade model~\cite{geant4, g4bert}.
-Fig.~\ref{fig:xsplot} shows the resulting total ${K^+}$ cross section extracted by the sliced TPC technique; it agrees well with the Geant 4 thin-target cross section.  The comparison of the Geant4 thin- and thick-target cross section results demonstrates the power of the sliced TPC method for the measurement of the ($K^{+}$, Ar) cross section in LArIAT TPC geometry. 
-
-\begin{figure}[h!]
-\centering
+%\begin{figure}[h!]
+%\centering
 %\includegraphics[scale=0.45]{./images/compare_new.png}
-\caption{$K^+$ on Ar total cross section dependence on the kinetic energy from MC simulations: comparison between the Geant4 prediction for a LAr thin target and cross section measurement with the sliced TPC technique based on MC truth energy deposited.}
-\label{fig:xsplot}
-\end{figure}
-
-Having validated the ``Sliced TPC'' technique by showing that it recovers the simulated cross-section, we now move to performing this measurement utilizing the complete LArIATSoft simulation suite.  Furthermore, we move from utilizing truth level MC information to performing fully automated reconstruction of the charged kaon events in the TPC. 
+%\caption{$K^+$ on Ar total cross section dependence on the kinetic energy from MC simulations: comparison between the Geant4 prediction for a LAr thin target and cross section measurement with the sliced TPC technique based on MC truth energy deposited.}
+%\label{fig:xsplot}
+%\end{figure}
 
 
 
 \subsection{Slices containing decays}
-We address here an important difference between the thin target and the thick target experiments. While the faction of kaon decay in the thin target is negligible, both in flight and at rest decays play an important role in the thick target case. 
-Kaon decay proceeds by the weak interaction; since our goal is to measure the hadronic cross section, slices containing decaying kaons must not contribute to the number of interacting kaons. If one only considers the endpoint of the primary kaon track without identification of the decay, this slice will be wrongly contribute to the $N_{interacting}$ counting. 
+We address here an important difference between the thin target and the thick target experiments. While the fraction of kaon decay in the thin target is negligible, both in flight and at rest decays play an important role in the thick target case. 
+Kaon decay proceeds by the weak interaction; since our goal is to measure the hadronic cross section, slices containing decaying kaons must not contribute to the number of interacting kaons. If one only considers the endpoint of the primary kaon track without identification of the decay, this slice will  wrongly contribute to the $N_{interacting}$ counting. 
 In case of kaon decay at rest, the kinetic energy is ideally zero, s shown in figure \textcolor{red}{ADD INTERACTION FIGURE!!!!}. A bragg peak towards the end of the kaon track is also formed as the kaon comes to a stop. A simple way to eliminate the contribution from slices containing kaon decay at rest is putting a lower bound to the energy range of the cross section. We decide to measure the cross section in the region between 100 MeV to 2000 MeV.
 
 Kaon decay in flight are more tricky, since they can happen at any energy. A distinction between interaction and decay is thus needed. 

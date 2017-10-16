@@ -21,6 +21,11 @@
 
 %% for long url reference
 \usepackage{hyperref}
+
+\usepackage{xcolor}
+
+\hypersetup{colorlinks=false,linkbordercolor=red,linkcolor=green,pdfborderstyle={/S/U/W 1}}
+
 \usepackage{url}
 \makeatletter
 \def\url@mystyle{%
@@ -107,12 +112,14 @@ We present the study of the total hadronic positive kaon-argon nucleus interacti
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% SECTION 2: Data Samples
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
 \newpage
 \input{section2}
-\newpage
+\clearpage
+\newpage 
 \input{section3}
 \newpage
-\input{sectionTemp}
+%\input{sectionTemp}
 \newpage
 %\input{AnalysisMethod}
 

@@ -3,24 +3,6 @@
 \section{Kaon candidate selection in the beamline}\label{sec:BeamlineSelection}
 \subsection{Overview of the LArIAT Beamline}\label{sec:BeamlineOverview}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The LArIAT experiment takes place at the Fermilab Test Beam Facility (FTBF) located in the Meson Building at Fermilab. A beam of 120~GeV protons is transported to the Meson Building and split to make two beam lines known as MCenter and MTest. LArIAT is served by the MCenter beam line, whose primary beam of 120~GeV protons impinges upon a thick target (25~cm) to create a secondary beam of charged particles, mainly kaons, 8 - 80 GeV range. This collimated kaon beam is momentum-selected and then transported the MC7 radiation enclosure, the LArIAT experiment hall.  
-
-In the MC7 enclosure the secondary beam focuses onto a thick copper target and the resulting tertiary beam is collimated by a 1~m iron shield with an opening $-13\deg$ to beam's right with respect to the secondary beam direction. Two analyzing dipole magnets steer the beam path $+10\deg$, selecting a momentum window within 0.2 and 2.0~GeV/c and sign-selecting the particles and steering them to the TPC. The tertiary beam is instrumented with a pair of Time-of-Flight (TOF) scintillating detectors,  four Wire Chambers (WC) which allow measurement of each particle's momentum based on the location of the hits in the wire chambers, two Aerogel Cherenkov counters (AG) of different Cherenkov threshold to allow for $\mu / \pi$ separation, the LArTPC detector and a Muon Range Stack. Figure \ref{fig:beamlineschematic} gives a diagram of the tertiary beam line within the MC7 enclosure.
-
-\begin{figure}[htb]
-\begin{center}
-\includegraphics[scale=0.25]{./images/mc7beamline.png}
-\end{center}
-\caption{Schematic of the Tertiary Beam line within the MC7 enclosure.}
-\label{fig:beamlineschematic}
-\end{figure}
-
-In this analysis, only the information from the Wire Chambers and the Time-of-Flight is used for particle identification. In particular, it is possible to calculate the mass of a given beamline track using the following equation
-
-\begin{equation}
-mass = \frac{p}{c}\sqrt{(\frac{TOF \times c}{l})^2 -1}
-\end{equation}
-where $p$ represents the measured momentum from the wire chamber, $TOF$ represents the time-of-flight measured as the difference between the two time-of-flight paddles in the LArIAT beamline, $l$ is path length the particle traveled down the beamline, and $c$ represents the speed of light. As is outlined in Section \ref{sec:EventSelection}, this allows us to select events based on the particle species.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Beam composition}\label{sec:G4BeamlineMC}

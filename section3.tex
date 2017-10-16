@@ -10,12 +10,12 @@ For the data, we are using a set which spans all of Run-II positive polarity dat
 
 
 
-LArIAT successfully ran for 9 weeks in 2015 (Run I) and 24 weeks in 2016 (Run II). Some spectacular Kaon interactions were found in data from Run I (see Figure \ref{fig:MCdata} and its great agreement with the MC),
-but the Kaon statistics in Run I is not enough to perform a cross section analysis. Figure \ref{fig:BeamComp} shows the reason behind the low statistics: this figure represents the tertiary beam composition of one of the first data runs. Two aspects of this plot are particularly notable. Firstly, Kaons are very few in the beam. However, the few Kaons produced are in the correct range of momentum for proton decay studies (compare the momentum on Figure \ref{fig:KGenie}).  LArIAT Run II provides enough statistic to measure Kaon cross section. 
+LArIAT successfully ran for 9 weeks in 2015 (Run I) and 24 weeks in 2016 (Run II). Some spectacular kaon interactions were found in data from Run I (see Figure \ref{fig:MCdata} and its great agreement with the MC),
+but the kaon statistics in Run I is not enough to perform a cross section analysis. Figure \ref{fig:BeamComp} shows the reason behind the low statistics: this figure represents the tertiary beam composition of one of the first data runs. Two aspects of this plot are particularly notable. Firstly, kaons are very few in the beam. However, the few kaons produced are in the correct range of momentum for proton decay studies (compare the momentum on Figure \ref{fig:KGenie}).  LArIAT Run II provides enough statistic to measure kaon cross section. 
 \begin{figure}[hpbt]
 \centering
 \includegraphics[width=6in]{images/Lariat/KDataMC}
-\caption{Direct comparson between a Kaon event in LArIAT Run I data and in LArIAT MC. }
+\caption{Direct comparson between a kaon event in LArIAT Run I data and in LArIAT MC. }
 \label{fig:MCdata}
 \end{figure}
 
@@ -32,7 +32,7 @@ but the Kaon statistics in Run I is not enough to perform a cross section analys
 \begin{minipage}{0.45\textwidth}
 \centering
 \includegraphics[width=3in]{images/Lariat/KaonGenie}
-\caption{Momentum distribution for the Kaon in the $p \rightarrow K^{+} \bar\nu$ mode proton decay as simulated by GENIE.}
+\caption{Momentum distribution for the kaon in the $p \rightarrow K^{+} \bar\nu$ mode proton decay as simulated by GENIE.}
 \label{fig:KGenie}
 \end{minipage}
 \end{figure}
@@ -40,10 +40,9 @@ but the Kaon statistics in Run I is not enough to perform a cross section analys
 
 
 
-The Run-II data use the definitions \href{https://redmine.fnal.gov/redmine/projects/lardbt/wiki/Recommended_SAM_Datasets}{oulined on this Wiki page} and summarized in Table \ref{tab:datasamples}.
 
 \begin{center}
-\begin{table}[htb]
+\begin{table}[b]
 	\begin{center}
 	%\resizebox{0.95\textwidth}{!}{%
 	\begin{tabular}{|c|c|c|}
@@ -82,13 +81,16 @@ The Run-II data use the definitions \href{https://redmine.fnal.gov/redmine/proje
 
 	 \hline
 	\end{tabular}%}
-	\caption{Summary of the data samples used for this analysis. }
+	\caption{Summary of the data sample used for this analysis. }
 	\label{tab:datasamples}
 	\end{center}
 \end{table}
 \end{center}
 
-The relevant Samweb definitions listed in Table \ref{tab:datasamples} which require some explaining are defined as:
+The Run-II data use the definitions \href{https://redmine.fnal.gov/redmine/projects/lardbt/wiki/Recommended_SAM_Datasets}{oulined on this Wiki page} and summarized in Table \ref{tab:datasamples}.
+
+
+The relevant \texttt{samweb} definitions listed in Table \ref{tab:datasamples} which require some explaining are defined as:
 
 \begin{itemize}
 \item \textbf{TPC Voltages Nominal}: Requires the cathode to be at greater than 23 kV, the collection plane wires voltage to be between 320 and 350 V, the induction plane voltage to be between -10 and -20 V, and the shield plane voltage to be greater than -310 V
@@ -101,16 +103,16 @@ The relevant Samweb definitions listed in Table \ref{tab:datasamples} which requ
 \end{itemize}
 
 
-It is important to provide a break down of the beam conditions for the period of data taking because the beam composition, hence the kaon content, varies according to the energy of the secondary beam and the strength of the magnetic field inside the magnets. Table \ref{tab:beamConditions} shows a break down of the beam conditions for both the beam data selected by  \verb!Lovely1_Pos_RunII_elenag_v04! and the events that pass the kaon candidates selection.
+It is important to provide a break down of the beam conditions for the period of data taking because the beam composition, hence the kaon content, varies according to the energy of the secondary beam and the strength of the magnetic field. Table \ref{tab:beamConditions} shows a break down of the beam conditions for the beam data selected by  \verb!Lovely1_Pos_RunII_elenag_v04! and the events that pass the beam line  selection.
 
 
 \begin{table}[]
 \centering
-\caption{Break down of beam conditions for Run-II positive polarity. $I$ is the value of the current in the magnets and $E$ is the energy of the secondary beam.  }
+\caption{Break down of beam conditions for Run-II positive polarity data. $I$ is the value of the current in the magnets and $E$ is the energy of the secondary beam.  }
 \label{tab:beamConditions}
 \begin{tabular}{l|l|l|l|l|}
 \cline{2-5}
-                                       & \multicolumn{2}{l|}{Lovely1\_Pos\_RunII\_elenag\_v04} & \multicolumn{2}{l|}{Kaon candidate sample} \\ \cline{2-5} 
+                                       & \multicolumn{2}{l|}{Lovely1\_Pos\_RunII\_elenag\_v04} & \multicolumn{2}{l|}{Beamline Kaon candidate sample} \\ \cline{2-5} 
                                        & Run \% & Event \% & Run \% & Event \% \\ \hline
 \multicolumn{1}{|l|}{I = + 100 A, E = 64 GeV}   &   61.8          &        75.0   & 75.1  &  90.35   \\ \hline
 \multicolumn{1}{|l|}{I =   + 60 A, E = 64 GeV}   &    30.1         &         23.8  & 24.9  &   9.65     \\ \hline
@@ -125,7 +127,7 @@ It is important to provide a break down of the beam conditions for the period of
 For the simulation of the tertiary beam, we use a combination of two MC generators: the G4Beamline Monte Carlo and the Data Driven single particle Monte Carlo (DDMC).   We use the G4Beamline MC to calculate the particle composition of the beam just before the cryostat. In order to simulate the beam line particles after Wire-Chamber 4, we use the DDMC. 
 
 \subsubsection{G4Beamline }\label{sec:G4Beamline}
-At the moment of this writing,  G4Beamline simulates transportation of particles through the beam line from the LArIAT target until ``Big Disk'', a fictional, void detector located just before the cryostat. The responses of  the beam line detector are not simulated. 
+At the moment of this writing,  G4Beamline simulates transportation of particles through the beam line from the LArIAT target until ``Big Disk'', a fictional, void detector located just before the cryostat. The responses of  the beam line detectors are not simulated. 
 
 The two beam conditions relevant for this analysis are simulated: secondary beam energy of 64 GeV, positive polarity magnet with current of 100 A and 60 A. Figure \ref{fig:beamspectrum} shows the tertiary beam spectra for the 64 GeV and 100 A condition on the left and for the 64 GeV and 60 A condition on the right.
 In Table \ref{tab:beamcomp2}, the beam composition is given in terms of percentage of different particle species per spill for positive polarity. The values reported are the weighted average on the two beam conditions considered. The weights are calculated according to the fourth column of Table \ref{tab:beamConditions}. 
@@ -145,7 +147,7 @@ Beam Composition (\%) &    42.8     &  30.1     &    8.6      &    2.1     &    
 
 \begin{figure}[htb]
 \begin{center}
-%\includegraphics[scale=0.45]{}
+\includegraphics[scale=0.05]{images/dummy.png}
 \end{center}
 \caption{G4Beamline tertiary beam  predicted spectra for positive 100 Amp, 64 GeV target energy with data overlaid (left). G4Beamline tertiary beam  predicted spectra for positive 60 Amp, 64 GeV target energy with data overlaid (right).}
 \label{fig:beamspectrum}
@@ -156,7 +158,7 @@ Beam Composition (\%) &    42.8     &  30.1     &    8.6      &    2.1     &    
 \subsubsection{Data Driven Single Particle MC (DDMC) }\label{sec:DDMCSamples}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The DDMC uses the data momentum and position at wire chamber 4 to derive its initial conditions. The details of these samples and where they can be found are given in \href{https://docs.google.com/spreadsheets/d/1_0kNCKBIIx53f6vopqN2OijtcTICHD9rDvN_YKGH2mI/edit?usp=sharing}{this data production spreadsheet}.
-The precise details of how the Monte Carlo used in this study are given in \href{https://lartpc-docdb.fnal.gov:441/cgi-bin/ShowDocument?docid=2054}{docDB-2054} and  \href{https://lartpc-docdb.fnal.gov:441/cgi-bin/ShowDocument?docid=2056}{dobDB-2056}, a summary of which is presented here. 
+More details of how the Monte Carlo used is generated are given in \href{https://lartpc-docdb.fnal.gov:441/cgi-bin/ShowDocument?docid=2054}{docDB-2054} and  \href{https://lartpc-docdb.fnal.gov:441/cgi-bin/ShowDocument?docid=2056}{dobDB-2056}, a summary of which is presented here. 
 
 The Data Driven Monte Carlo (DDMC) uses data quantities for a sample of Wire-Chamber tracks to derive the momentum ($P_x, P_y, P_z$) and position at WC4 $X, Y$ distributions that are seen during a particular running period and/or running condition. Using those data derived distributions, it then launches single particle MC from $z = -100$~cm (the location of the fourth wire chamber) with these distributions as a template. An illustration of this procedure is shown in Figure \ref{fig:DDMC} with the results of the DDMC generation compared to a sample of wire chamber track data. Using this technique ensures the MC and data have very similar momentum, position and angular distributions at Wire-Chamber 4 and allow us to calibrate the energy loss upstream of the TPC as precisely as possible. The DDMC is a single particle Monte Carlo: the beam pile-up is not simulated.
 

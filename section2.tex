@@ -8,9 +8,30 @@ The strategy can be summarize in 3 steps:
 \item[3.] Identification and treatment of the slices containing a decaying kaon.
 \end{itemize}
 
-\subsection{Identification of Kaons in the beam line}
+\subsection{Identification of kaons in the beam line}
+First task of this analysis is selecting the kaon candidates in the LArIAT beam line data.
 
-These candidates constitute the pool of events used for the cross section measurement.
+In order to do so,  it is beneficial to describe how LArIAT gets its beam of charge particle to the TPC. A primary beam of 120~GeV protons is transported to the Meson Building and split to make two beam lines known as MCenter and MTest. LArIAT is served by the MCenter beam line, whose primary beam of 120~GeV protons impinges upon a thick target (25~cm) to create a secondary beam of charged particles, mainly pions, in the 8 - 80 GeV range. This collimated pion beam is momentum-selected and then transported the MC7 radiation enclosure, the LArIAT experiment hall.  
+
+In the MC7 enclosure the secondary beam focuses onto a thick copper target and the resulting tertiary beam is collimated by a 1~m iron shield with an opening $-13\deg$ to beam's right with respect to the secondary beam direction. Two analyzing dipole magnets steer the beam path $+10\deg$, selecting a momentum window within 0.2 and 2.0~GeV/c. The polarity of the magnets determines the sign of the selected particles (positive or negative runs). The tertiary beam is instrumented with a pair of Time-of-Flight (TOF) scintillating detectors,  four Wire Chambers (WC), two Aerogel Cherenkov counters (AG), the LArTPC detector and a Muon Range Stack. Figure \ref{fig:beamlineschematic} shows a diagram of the tertiary beam line within the MC7 enclosure.
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[scale=0.25]{./images/mc7beamline.png}
+\end{center}
+\caption{Schematic of the Tertiary Beam line within the MC7 enclosure.}
+\label{fig:beamlineschematic}
+\end{figure}
+
+The beam line kaon candidates are selected by picking out the right events from the tertiary beam line triggered events \textcolor{red}{(Maybe write how triggers are formed?)}.
+In this analysis, only the information from the Wire Chambers and the Time-of-Flight is used for particle identification. For the TOF, we use the standard reconstruction software. For the WC, we use the ``picky tracks" reconstruction which requires one and only one hit in all four the wire chambers. From the time of flight and momentum reconstruction, we calculate the mass of a given beam line track using the following equation
+
+\begin{equation}
+mass = \frac{p}{c}\sqrt{(\frac{TOF \times c}{l})^2 -1}
+\end{equation}
+where $p$ represents the measured momentum from the wire chamber, $TOF$ represents the time-of-flight measured as the difference between the two time-of-flight paddles in the LArIAT beam line, $l$ is path length the particle traveled down the beamline, and $c$ represents the speed of light. A selection on the reconstructed mass (350~MeV $<$ mass $<$ 650~MeV) determines the pool of beam line kaon candidates. \\
+Once an event is selected in the beam line, we need to match the kaon candidate with a track inside the TPC. 
+The last kaon hit recorded in the beam line is at WC4, but WC4 is located 100 cm upstream the TPC front face. In this space the kaon encounters air, the halo veto, the front face of the cryostat and about 10 cm of dead argon. From MC simulation, we estimate that about 26\% of beam line kaon candidates do not reach the TPC: they either interact or decay before the front face. Due to beam line pile up, more than one reconstructed TPC track may be present in the same TPC event. We apply a series of geometrical requirements to match the beam line candidate to a TPC track: we require the position and direction of the TPC track to be consistent with the projection of the WC track at the TPC  front face. If at least one TPC track passes the selection cut, the event is used for the cross section measurement.
 
 \label{sec:BeamlineKStrategy}
 \subsection{The thin-slice method}
@@ -55,7 +76,7 @@ The LArIAT TPC, with its 90-cm thick active volume, is not a thin target. Nevert
 {z}} axis) with a spacing $\Delta${\textit
 {z}} = 4 mm/sin($60^{\circ}$) $\approx$ 4.5~mm, as shown in Fig.~\ref{fig:slicedtpc}. 
 Each slice can be now considered an independent ``thin target" experiment and the cross section calculation in Eq. \ref{calc_sigma2} can be iteratively applied. The kinetic energy of the kaon entering the TPC is determined by measuring its momentum with the tertiary beamline and assuming the kaon mass as mass hypothesis. At each given slice, the kaon incident kinetic  is then determined by subtracting its calorimetric energy released in the previous slice from the total kinetic energy at that slice. Thus, it is possible to perform a differential cross section measurement as a function of the energy because the kaon kinetic energy $K.E._{slice}$  is known before entering each slice. \\ 
-When the kaon enters a slice, it contributes to $N_{inc}$ for the energy bin corresponding to  its kinetic energy  that slice. If it interacts in the slice, it also contributes to $N_{int}$ in the appropriate energy bin. If it does not interact, the kaon proceeds to the next slice and the counting is repeated for its new kinetic energy.\\
+When the kaon enters a slice, it contributes to $N_{inc}$ for the energy bin corresponding to  its kinetic energy  that slice. If it interacts in the slice, it also contributes to $N_{int}$ in the appropriate energy bin. If it does not interact, the kaon proceeds to the next slice and the counting is repeated for its new kinetic energy. If a kaon exists the TPC boundaries without interacting (through going event), its track will contribute exclusively to the $N_{inc}$ slices.\\
 
 The uncertainty for each energy bin is calculated by error propagation from the uncertainty on $N_{incident}$ and $N_{interacting}$. 
 Since the number of incident pions in each slice is given by a simple counting, it is safe to assume that $N_{incident}$ is distributed as a poissonian with mean and $\sigma^2$ equal to $N_{incident}$ in each bin.  
@@ -86,27 +107,45 @@ It is worth noticing an important difference between the procedure utilized by L
 The sliced TPC technique was tested by comparing the results of this method with the Geant 4.10.1.p3 prediction of the total hadronic interaction cross section ($K^{+}$, Ar)  with Bertini Cascade model.
 Fig.~\ref{fig:TrueArgon} shows the resulting total ${K^+}$ cross section extracted by the sliced TPC technique; it agrees well with the Geant 4  cross section.  This comparison demonstrates the power of the sliced TPC method for the measurement of the ($K^{+}$, Ar) cross section in LArIAT TPC geometry. 
 
-%\begin{figure}[h!]
-%\centering
-%\includegraphics[scale=0.45]{./images/compare_new.png}
-%\caption{$K^+$ on Ar total cross section dependence on the kinetic energy from MC simulations: comparison between the Geant4 prediction for a LAr thin target and cross section measurement with the sliced TPC technique based on MC truth energy deposited.}
-%\label{fig:xsplot}
-%\end{figure}
-
 
 
 \subsection{Slices containing decays}
 We address here an important difference between the thin target and the thick target experiments. While the fraction of kaon decay in the thin target is negligible, both in flight and at rest decays play an important role in the thick target case. 
-Kaon decay proceeds by the weak interaction; since our goal is to measure the hadronic cross section, slices containing decaying kaons must not contribute to the number of interacting kaons. If one only considers the endpoint of the primary kaon track without identification of the decay, this slice will  wrongly contribute to the $N_{interacting}$ counting. 
-In case of kaon decay at rest, the kinetic energy is ideally zero, s shown in figure \textcolor{red}{ADD INTERACTION FIGURE!!!!}. A bragg peak towards the end of the kaon track is also formed as the kaon comes to a stop. A simple way to eliminate the contribution from slices containing kaon decay at rest is putting a lower bound to the energy range of the cross section. We decide to measure the cross section in the region between 100 MeV to 2000 MeV.
+Kaon decay proceeds by the weak interaction; since our goal is to measure the hadronic cross section, slices containing decaying kaons must not contribute to the number of interacting slices. If one only considers the endpoint of the primary kaon track without identification of the decay, this slice will  wrongly contribute to the $N_{interacting}$ counting. 
 
-Kaon decay in flight are more tricky, since they can happen at any energy. A distinction between interaction and decay is thus needed. 
+Figure \ref{fig:interactionBreakdown} shows the interaction types as a function of the kaon kinetic energy as predicted by  Geant 4.10.1.p3. The plot is normalized by the total number of simulated events which enter the TPC.
+As shown in the figure, kaon decay mainly at rest: about 68\% of decaying kaons has a kinetic energy of less than 50 MeV. 
+Figure \ref{fig:interactionBreakdownPercentage} shows the proportional contribution of each interaction type as a function of the kinetic energy as predicted by  Geant 4.10.1.p3. Each bin is normalized by the number of interactions for that kinetic energy.
+Given the prominence of decay in the first kinetic energy bin, a simple way to eliminate the contribution from slices containing kaon decay at rest is setting a proper lower bound for the kinetic energy range in the cross section measurement. We decide to measure the cross section in the region between 100 MeV to 1000 MeV \textcolor{red}{(true for now...)}.
+Kaon decay in flight are more tricky, since they can happen at any energy. According to Geant4, they make up less than 20\% interactions for energies greater than 100 MeV. A distinction between interaction and decay based on the event topology is thus needed and will be discussed later in the note  \textcolor{red}{(reference to right chapter)}. If a decay is tagged in a slice, the corresponding kinetic energy will contribute exclusively to the $N_{inc}$ counting.\\
+
+
+%A Bragg peak towards the end of the kaon track is also formed as the kaon comes to a stop. 
+     
+\begin{figure}
+\captionsetup{justification=raggedright}  
+\begin{minipage}[b]{.53\textwidth}  
+  \centering  
+\includegraphics[scale=0.45]{./images/Lariat/InteractionBreakDown.png}
+\end{minipage}%  
+\begin{minipage}[b]{0.53\textwidth}  
+  \centering  
+\includegraphics[scale=0.45]{./images/Lariat/PercentageIntType.png}
+\end{minipage}
+\par
+\begin{minipage}[t]{.53\textwidth}
+\caption{Interaction types as a function of the kaon kinetic energy as predicted by  Geant 4.10.1.p3: decay (blue), through going (yellow), elastic (red), inelastic (green).}
+\label{fig:interactionBreakdown}
+\end{minipage}%
+\begin{minipage}[t]{.5\textwidth}  
+\caption{Proportional contribution of the various interaction types as a function of the kaon kinetic energy as predicted by  Geant 4.10.1.p3: decay (blue), through going (yellow), elastic (red), inelastic (green). Each bin is normalized by the number of interactions for that kinetic energy.}
+\label{fig:interactionBreakdownPercentage}
+\end{minipage}  
+\end{figure}
 
 
 
 
-
- Kaon decay tagging is discussed the next section. 
 
 
 
